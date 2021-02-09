@@ -20,5 +20,9 @@ public class MyBroadcastReceiver extends BroadcastReceiver {
         if (Intent.ACTION_POWER_CONNECTED.equals(intent.getAction())) {
             Toast.makeText(context, "Power Connected", Toast.LENGTH_SHORT).show();
         }
+
+        if ("myCustomBroadcast".equals(intent.getAction())) {
+            Toast.makeText(context, "Custom Broadcast Received", Toast.LENGTH_SHORT).show();
+        }
     }
 }

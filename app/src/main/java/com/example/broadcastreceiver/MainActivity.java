@@ -17,6 +17,9 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         receiver = new MyBroadcastReceiver();
+
+        IntentFilter intentFilter = new IntentFilter("myCustomBroadcast");
+        registerReceiver(receiver, intentFilter);
     }
 
     @Override
@@ -32,5 +35,11 @@ public class MainActivity extends AppCompatActivity {
     protected void onStop() {
         super.onStop();
         unregisterReceiver(receiver);
+    }
+
+
+    public void Broadcast(View view) {
+        Intent intent = new Intent("myCustomBroadcast");
+        sendBroadcast(intent);
     }
 }
